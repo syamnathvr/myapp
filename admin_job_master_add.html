@@ -1,0 +1,23 @@
+{% extends 'myapp/admin_base.html'%}
+    {% block title %}Add Details{% endblock %}
+    {% block body %}
+
+<center>
+    <h2> Add details</h2>
+    <div class="container">
+        {% autoescape off %}
+        {{msg}}
+        {% endautoescape %}
+        <form role="form" name="frm" action="{%url 'admin_job_master_add'%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="label">Label</label>
+                <input type="text" name="label" id="label" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-info" id="bt1" name="bt">Add</button>
+            {% csrf_token %}
+        </form>
+    </div>
+</center>
+  {% endblock %}

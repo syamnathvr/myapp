@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block title %}User Login{% endblock%}
+{% block body %}
+    <center>
+    <h3>User Login</h3>
+    <div class="container">
+        {{msg}}
+        <form role="form" name="frm" action="{%url 'user_login'%}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="uname">Username</label>
+                <input type="text" name="uname" id="uname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="passwd">Password</label>
+                <input type="password" name="passwd" id="passwd" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-info" id="bt" name="bt">Login</button>
+        </form>
+        <br>
+        <a href="#" class="btn btn-success" role="button">New User</a>
+    </div>
+</center>
+{% endblock %}

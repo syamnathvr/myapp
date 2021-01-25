@@ -1,0 +1,31 @@
+ {% extends 'myapp/admin_base.html'%}
+    {% block title %} {% endblock %}
+    {% block body %}
+
+<center>
+    <h2> Job Master</h2>
+    <div class="container">
+    <form name="frm">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>LABEL</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ud in job_master %}
+            <tr>
+                <td>{{ud.id}}</td>
+                <td>{{ud.label}}</td>
+                <td><a href="./admin_job_master_delete?id={{ud.id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{%url 'admin_job_master_add'%}">Add</a>
+    </form>
+    </div>
+</center>
+  {% endblock %}
